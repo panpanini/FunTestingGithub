@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MokuMokuGithub</string>
+    <string name="enter_github_username">Enter GitHub username</string>
+    <string name="search">Search</string>
+    <string name="empty"></string>
+    <string name="number_of_repos">number of repos: %d</string>
+    <string name="name">Name: %s</string>
+    <string name="location">Location: %s</string>
+    <string name="fork">Fork: %s</string>
+    <string name="language">Language: %s</string>
+</resources>
