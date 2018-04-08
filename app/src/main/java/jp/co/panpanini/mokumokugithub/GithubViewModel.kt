@@ -4,10 +4,11 @@ import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.processors.BehaviorProcessor
 
+@OpenForTesting
+class GithubViewModel(private val githubService: GithubService = GithubService(),
+                      private val username: BehaviorProcessor<String> = BehaviorProcessor.createDefault("")) {
 
-class GithubViewModel(private val githubService: GithubService = GithubService()) {
 
-    private val username: BehaviorProcessor<String> = BehaviorProcessor.createDefault("")
 
     fun observeName(): Flowable<String> = githubService.observeUser().map { it.name }
 

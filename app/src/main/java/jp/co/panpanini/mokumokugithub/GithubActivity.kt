@@ -1,7 +1,9 @@
 package jp.co.panpanini.mokumokugithub
 
+import android.annotation.SuppressLint
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.annotation.VisibleForTesting
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -17,11 +19,10 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
 
+@SuppressLint("VisibleForTests")
 class GithubActivity : AppCompatActivity() {
 
-    private val viewModel by lazy {
-        GithubViewModel()
-    }
+    var viewModel = GithubViewModel()
 
     @BindView(R.id.image)
     lateinit var profileImage: ImageView
@@ -60,14 +61,14 @@ class GithubActivity : AppCompatActivity() {
                 .defaultIfEmpty(false)
                 .observeOn(AndroidSchedulers.mainThread())
                 .map {
-                    Timber.e("$it")
                     if (it) View.VISIBLE else View.GONE
                 }
                 .subscribe(repos::setVisibility)
         )
     }
 
-    private fun bindData() {
+    @VisibleForTesting
+    fun bindData() {
         disposables.addAll(
             viewModel.observeName()
                 .observeOn(AndroidSchedulers.mainThread())

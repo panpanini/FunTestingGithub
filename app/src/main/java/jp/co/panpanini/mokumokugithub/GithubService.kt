@@ -13,8 +13,7 @@ class GithubService(private val githubApi: GithubApi
 
     fun fetchUser(username: String): Completable {
         return githubApi.user(username)
-            .doOnSuccess { repository.setUser(it) }
-            .ignoreElement()
+            .flatMapCompletable(repository::setUser)
     }
 
     fun observeUser(): Flowable<User> = repository.observeUser()
