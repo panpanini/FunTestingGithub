@@ -1,0 +1,4 @@
+
+
+@OpenForTesting
+class OpenForTestingSuperclass

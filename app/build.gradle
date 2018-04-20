@@ -67,4 +67,18 @@ dependencies {
 //    androidTestImplementation 'org.mockito:mockito-android:2.18.0'
     androidTestImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
 
+    lintChecks project(':Lint')
+
+}
+
+
+tasks.withType(Test) {
+    afterSuite { desc, result ->
+        if (!desc.parent) { // will match the outermost suite
+            def output = "Results: ${result.resultType} (${result.testCount} tests, ${result.successfulTestCount} successes, ${result.failedTestCount} failures, ${result.skippedTestCount} skipped)"
+            def startItem = '|  ', endItem = '  |'
+            def repeatLength = startItem.length() + output.length() + endItem.length()
+            println('\n' + ('-' * repeatLength) + '\n' + startItem + output + endItem + '\n' + ('-' * repeatLength))
+        }
+    }
 }

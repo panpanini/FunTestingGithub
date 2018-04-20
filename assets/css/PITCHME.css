@@ -1,0 +1,11 @@
+.reveal p span.slide-title {
+  color: black;
+  padding: 4px 15px;
+  opacity: 0.75 !important;
+  border-radius: 15px;
+}
+
+.reveal section img {
+  border: 0;
+  box-shadow: none;
+}

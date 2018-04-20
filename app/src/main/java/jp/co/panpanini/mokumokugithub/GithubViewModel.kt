@@ -30,5 +30,8 @@ class GithubViewModel(private val githubService: GithubService = GithubService()
 
     fun fetchUser(): Completable = githubService.fetchUser(username.value)
 
+}
+
+class GithubViewModelSubclass : GithubViewModel() {
 
 }
