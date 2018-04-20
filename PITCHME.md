@@ -486,3 +486,5 @@ DEMO
   - https://peaks.cc/tsuyogoro/architecture_patterns
 - How to make Custom Lint - kgmyshin
   - https://speakerdeck.com/kgmyshin/how-to-make-custom-lint-at-shibuya-apk-24
+- Github + Slides
+  - https://github.com/panpanini/FunTestingGithub
